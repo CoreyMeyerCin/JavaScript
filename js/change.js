@@ -1,12 +1,12 @@
 let user;
+let parms;
 
 $().ready(()=>{
+    parms = getUrlParms();
+    console.debug("Parms:", parms);
     console.log("Ready!");  
+    display(parms.id);
 
-    $("#get").on("click",()=>{
-        let id = $("#xId").val();
-        display(id);
-    })
     $("#save").on("click",()=>{
         save();
     })
@@ -38,9 +38,9 @@ const save =()=>{
         firstname :$("#iFirstname").val(),
         lastname: $("#iLastname").val(),
         phone: $("#iPhone").val(),
-        email: $("iEmail").val(),
-        isReviewer: $("iReviewer").prop("checked"),
-        isAdmin: $("iAdmin").prop("checked")
+        email: $("#iEmail").val(),
+        isReviewer: $("#iReviewer").prop("checked"),
+        isAdmin: $("#iAdmin").prop("checked")
     }
     console.debug(user1);
     $.ajax({
@@ -51,6 +51,7 @@ const save =()=>{
     })
         .then((res) =>{
             console.log(res);
+            document.location.href = "index.html";
         })
         .fail((err) =>{
             console.error(err);

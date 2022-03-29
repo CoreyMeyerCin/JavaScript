@@ -1,6 +1,7 @@
 $().ready(()=>{
  $("#save").on("click", ()=>{
      create();
+
  })
 });
 
@@ -12,9 +13,9 @@ const create = ()=>{
         firstname :$("#iFirstname").val(),
         lastname: $("#iLastname").val(),
         phone: $("#iPhone").val(),
-        email: $("iEmail").val(),
-        isReviewer: $("iReviewer").prop("checked"),
-        isAdmin: $("iAdmin").prop("checked")
+        email: $("#iEmail").val(),
+        isReviewer: $("#iReviewer").prop("checked"),
+        isAdmin: $("#iAdmin").prop("checked")
     }
 console.debug(user1);
 $.ajax({
@@ -25,6 +26,7 @@ $.ajax({
 })
     .then((res) =>{
         console.debug(res);
+        document.location.href = "index.html";
     })
     .fail((err) =>{
         console.error(err);

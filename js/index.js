@@ -31,14 +31,18 @@ const display = (users) =>{
         tr.append(tdId);
         let tdUsername = $(`<td>${user.tdUsername} </td>`);
         tr.append(tdUsername);
+        let tdPhone = $(`<td>${user.tdPhone} </td>`);
+        tr.append(tdPhone);
         let tdName = $(`<td>${user.firstname} ${user.lastname} </td>`);
         tr.append(tdName);
         let tdEmail = $(`<td>${user.email}</td>`);
         tr.append(tdEmail);
-        let tdReviewer = $(`<td>${(user.isReviewer ? "Yes" : "No")} </td>`)
+        let tdReviewer = $(`<td>${(user.isReviewer ? "Yes" : "No")} </td>`);
         tr.append(tdReviewer);
-        let tdAdmin = $(`<td>${(user.isAdmin ? "Yes" : "No")}</td>`)
+        let tdAdmin = $(`<td>${(user.isAdmin ? "Yes" : "No")}</td>`);
         tr.append(tdAdmin);
+        let tdAction = $(`<td><a href ="detail.html?id=${user.id}">Detail</a> | <a href ="change.html?id=${user.id}">Edit</a></td>`);
+        tr.append(tdAction);
         tbody.append(tr);
     }
 }
